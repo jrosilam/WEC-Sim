@@ -19,7 +19,7 @@ simu.cicEndTime = 30;                   % Specify CI Time [s]
 % waves.height = 2.5;                     % Wave Height [m]
 % waves.period = 8;                       % Wave Period [s]
 
-% Irregular Waves using PM Spectrum with Directionality 
+% % Irregular Waves using PM Spectrum with Directionality 
 waves = waveClass('irregular');         % Initialize Wave Class and Specify Type
 waves.height = 2.5;                     % Significant Wave Height [m]
 waves.period = 8;                       % Peak Period [s]
@@ -35,6 +35,13 @@ waves.spread = [0.1,0.2,0.7];           % Wave Directional Spreading [%}
 % waves = waveClass('elevationImport');          % Create the Wave Variable and Specify Type
 % waves.elevationFile = 'elevationData.mat';     % Name of User-Defined Time-Series File [:,2] = [time, eta]
 
+% % Wave markes
+xPts = -20:5:20;
+yPts = -20:5:20;
+[xLoc, yLoc] = meshgrid(xPts,yPts);
+waves.marker.location = [xLoc(:), yLoc(:)];
+waves.marker.size = 8;
+waves.marker.style = 1;
 
 %% Body Data
 % Flap
@@ -50,7 +57,7 @@ body(2).mass = 'fixed';                         % Creates Fixed Body
 
 %% PTO and Constraint Parameters
 % Fixed
-constraint(1)= constraintClass('Constraint1');  % Initialize ConstraintClass for Constraint1
+constraint(1) = constraintClass('Constraint1'); % Initialize ConstraintClass for Constraint1
 constraint(1).location = [0 0 -10];             % Constraint Location [m]
 
 % Rotational PTO

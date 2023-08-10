@@ -1,0 +1,10 @@
+      "meshbox.pmsh" ! Mesh file
+0                    ! 1 if a symmetry about (x0z) is used. 0 otherwise
+0    0 	             ! Possible translation about x axis (first number) and y axis (second number)
+     0      0      0 ! Coordinates of gravity centre
+   585               ! Target for the number of panels in refined mesh
+2
+0                    ! Mesh z-axis translation from origin
+1                    ! Mesh scale
+  1025               ! Water density (kg/m3)
+  9.81               ! Gravity (m/s2)
